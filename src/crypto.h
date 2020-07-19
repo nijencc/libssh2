@@ -58,6 +58,10 @@
 #include "mbedtls.h"
 #endif
 
+#ifdef LIBSSH2_BOTAN2
+#include "botan2.h"
+#endif
+
 #define LIBSSH2_ED25519_KEY_LEN 32
 #define LIBSSH2_ED25519_PRIVATE_KEY_LEN 64
 #define LIBSSH2_ED25519_SIG_LEN 64

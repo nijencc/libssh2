@@ -9,10 +9,11 @@ Installation instructions are in docs/INSTALL
 To build libssh2 you will need CMake v2.8 or later [1] and one of the
 following cryptography libraries:
 
-* OpenSSL
+* 
 * Libgcrypt
 * WinCNG
 * mbedTLS
+* Botan2
 
 Getting started
 ---------------
@@ -57,7 +58,8 @@ The following options are available:
     Chooses a specific cryptography library to use for cryptographic
     operations.  Can be `OpenSSL` (https://www.openssl.org),
     `Libgcrypt` (https://www.gnupg.org/), `WinCNG` (Windows Vista+),
-    `mbedTLS` (https://tls.mbed.org/) or blank to use any library available.
+    `mbedTLS` (https://tls.mbed.org/), `Botan2` (https://github.com/randombit/botan)
+    or blank to use any library available.
 
     CMake will attempt to locate the libraries automatically.  See [2]
     for more information.

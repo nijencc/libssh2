@@ -166,6 +166,20 @@ if(CRYPTO_BACKEND STREQUAL "mbedTLS" OR NOT CRYPTO_BACKEND)
   endif()
 endif()
 
+if(CRYPTO_BACKEND STREQUAL "Botan2" OR NOT CRYPTO_BACKEND)
+
+  find_package(Botan2 ${SPECIFIC_CRYPTO_REQUIREMENT})
+
+  if(BOTAN2_FOUND)
+    set(CRYPTO_BACKEND "Botan2")
+    set(CRYPTO_SOURCES botan2.c botan2.h)
+    list(APPEND PRIVATE_COMPILE_DEFINITIONS LIBSSH2_BOTAN2)
+    list(APPEND PRIVATE_INCLUDE_DIRECTORIES ${BOTAN2_INCLUDE_DIR})
+    list(APPEND LIBRARIES ${BOTAN2_LIBRARIES})
+    list(APPEND PC_LIBS -lbotan-2)
+  endif()
+endif()
+
 if(NOT CRYPTO_BACKEND)
   message(FATAL_ERROR "No suitable cryptography backend found.")
 endif()
